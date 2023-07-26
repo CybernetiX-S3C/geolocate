@@ -11,7 +11,8 @@ def geolocate(phone_number):
         return None
 
 if __name__ == "__main__":
-    phone_number = "123-456-7890"
-    latitude, longitude = geolocate(phone_number)
+    phone_number = input("Enter the phone number: ")
+    e164_format = phonenumbers.format_number(phone_number, phonenumbers.PhoneNumberFormat.E164)
+    latitude, longitude = geolocate(e164_format)
     print("The latitude is {}.".format(latitude))
     print("The longitude is {}.".format(longitude))
